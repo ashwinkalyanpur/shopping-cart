@@ -1,0 +1,19 @@
+.btn-outline-secondary{
+    background-color: transprent;
+    border: 0;
+    padding: 0;
+}
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.input-group{
+    width: auto;
+    float: right;
+}
+.fa{
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 5px;
+}

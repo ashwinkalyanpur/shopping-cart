@@ -1,0 +1,16 @@
+
+<nav class="navbar navbar-default background">
+    <div class="container-fluid">
+        <div class="navbar-header">      
+            <a href="#" class="navbar-brand" (click)="onSelect('shopping-list')"><i class="fa fa-star icon-color" aria-hidden="true"></i></a>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li>
+                <app-search></app-search>
+            </li>
+            <li> <span class='notification-counter badge badge-danger' [class.disabled]="nCount == 0" data-toggle="modal" data-target="#exampleModal">{{nCount}}</span><a href="#" (click)="onSelect('cart')"><i class="fa fa-shopping-cart"
+                        aria-hidden="true" ></i></a></li>
+        </ul>
+    </div>
+</nav>

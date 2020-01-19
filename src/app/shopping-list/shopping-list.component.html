@@ -1,0 +1,39 @@
+<div class="container-fluid border">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-3 spacing-col">
+          <app-filter></app-filter>
+        </div>
+        <div class="col-sm-9 border-left spacing-col">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <select id="sort-by" class="form-control" (change)="sort($event)">
+                            <option value="" selected disabled hidden>Sort By</option>
+                            <option value="High">Price High -- Low</option>
+                            <option value="Low">Price Low -- High</option>
+                            <option value="Discount">Discount</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" *ngFor="let items of ItemData" (recipeWasSelected)="selectedRecipe = $event">
+                    <img src="{{ items.img_url }}" class="img-responsive">
+                    <p>{{ items.Category }}</p>
+                    <label for="" class="spacing"><i class="fa fa-inr" aria-hidden="true"></i> {{ items.Price }}</label>
+                    <label for="" class="spacing gray">{{ items.Discount }}</label>
+                    <!-- <label for="" class="spacing green">64% off</label> -->
+                    <label for="" class="spacing green">{{ ((items.Discount/items.Price)*100).toFixed(2) }} % Off</label>
+                    <button class="btn btn-primary btn-custom" (click)="sendRecord()">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+

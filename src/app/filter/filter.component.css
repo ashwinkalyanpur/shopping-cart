@@ -1,0 +1,4 @@
+.fa-rupee:before,
+.fa-inr:before {
+  content: "\f156";
+}

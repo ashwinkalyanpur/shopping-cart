@@ -1,0 +1,24 @@
+.fa-star.icon-color{
+    color: #f7cd22;
+    font-size: 35px;
+}
+.background{
+    background-color: #4269ea;
+    width: 100%;
+    display: block;
+    padding: 7px 0;
+}
+.navbar-nav{
+    flex-direction: row;
+}
+.fa{
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 5px;
+}
+.badge-danger{
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    border-radius: 50%;
+}

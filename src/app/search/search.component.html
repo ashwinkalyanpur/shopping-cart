@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="input-group">
+                <input class="form-control border-secondary py-2" *ngIf="toggleInput" type="search" value="search">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" (click)="toggleClick()">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

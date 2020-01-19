@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('assets/fontawesome/css/all.css');
+p{
+    margin: 0;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #f1f3f6;
+}
+.fa-rupee:before, .fa-inr:before {
+    content: "\f156";
+}
+.border-left .col-sm-3{
+    text-align: center;
+    margin-bottom: 15px;
+}
