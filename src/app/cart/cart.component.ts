@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ShoppingRecipe } from '../shopping-list/shopping-recipe';
+import { CartDataService } from '../shopping-list/cartdata.services';
+
 
 @Component({
   selector: 'app-cart',
@@ -8,10 +10,12 @@ import { ShoppingRecipe } from '../shopping-list/shopping-recipe';
 })
 export class CartComponent implements OnInit {
   public counter : number = 0; 
+  items;
   @Output() recipeWasSelected = new EventEmitter<ShoppingRecipe>();
-  constructor() { }
+  constructor(private cartDataService: CartDataService) { }
 
   ngOnInit() {
+    this.items = this.cartDataService.getItems();
   }
 
   increment(){this.counter += 1;}

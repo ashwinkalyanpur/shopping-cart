@@ -2,9 +2,19 @@
 [ShoppingRecipe]="recipesEl"
 (recipeSelected)="onRecipeSelected(recipesEl)"
 [recipe]="selectedRecipe"></p> -->
+
+<div class="row">
+    <div class="col-sm-3" *ngFor="let item of items">
+        <img src="{{ item.img_url }}" class="img-responsive">
+        <p>{{ item.Category }}</p>
+        <label for="" class="spacing"><i class="fa fa-inr" aria-hidden="true"></i> {{ item.Price }}</label>
+        <label for="" class="spacing gray">{{ item.Discount }}</label>
+        <!-- <label for="" class="spacing green">64% off</label> -->
+        <label for="" class="spacing green">{{ ((item.Discount/item.Price)*100).toFixed(2) }} % Off</label>
+    </div>
+</div>
 <div class="col-sm-3">
     <div class="row">
-
         <a class="btn btn-primary" (click)="decrement()" role="button">
             -
         </a>

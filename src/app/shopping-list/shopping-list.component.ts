@@ -77,7 +77,8 @@ export class ShoppingListComponent implements OnInit {
     return this.ItemData;
   }
 
-  sendRecord() {  
+  sendRecord(product) {  
     this._cartDataService.editCount(this.counter);
+    this._cartDataService.addToCart(product);
   }
 }

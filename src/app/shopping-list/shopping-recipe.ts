@@ -1,3 +1,4 @@
+
 export class ShoppingRecipe {
     public id: number;
     public Name: string;
