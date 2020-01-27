@@ -64,6 +64,11 @@ export class ShoppingCartService {
                           .map((item) => item.quantity * this.products.find((p) => p.id === item.productId).Price)
                           .reduce((previous, current) => previous + current, 0);
     cart.grossTotal = cart.itemsTotal
+
+    cart.discountTotal = cart.items
+                          .map((item) => item.quantity * this.products.find((p) => p.id === item.productId).Discount)
+                          .reduce((previous, current) => previous + current, 0);
+    cart.grossDiscount = cart.discountTotal
   }
 
   private retrieve(): TotalCartItem {
@@ -86,7 +91,6 @@ export class ShoppingCartService {
           try {
             sub.next(cart);
           } catch (e) {
-            // we want all subscribers to get the update even if one errors.
           }
         });
   }

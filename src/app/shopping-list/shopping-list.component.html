@@ -21,9 +21,10 @@
                 <div class="col-sm-3" *ngFor="let product of products | async" >
                     <img src="{{ product.img_url }}" class="img-responsive">
                     <p>{{ product.Category }}</p>
-                    <label for="" class="spacing"><i class="fa fa-inr" aria-hidden="true"></i> {{ product.Price }}</label>
-                    <label for="" class="spacing gray">{{ product.Discount }}</label>
+                    <label for="" class="spacing "><i class="fa fa-inr" aria-hidden="true"></i> {{ product.Price-product.Discount }}</label>
+                    <label for="" class="spacing gray">{{ product.Price }}</label>
                     <label for="" class="spacing green">{{ ((product.Discount/product.Price)*100).toFixed(2) }} % Off</label>
+                    <!-- <label for="" class="spacing gray">{{ product.Discount }}</label> -->
                     <button type="button" class="btn btn-primary btn-custom" (click)="addProductToCart(product, 1)">
                         Add to Cart
                     </button>

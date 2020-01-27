@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-sm-8">
         <div class="row">
-            <div class="col-sm-12 border" *ngFor="let item of cartItems">
-                <div class="row">
+            <div class="col-sm-12" *ngFor="let item of cartItems">
+                <div class="row border">
                     <div class="col-sm-2">
                         <img src="{{ item.product.img_url }}" class="img-responsive">
                     </div>
@@ -11,13 +11,10 @@
                             <p>{{ item.product.Category }}</p>
                         </div>
                         <div class="col-sm-12">
-                            <label for="" class="spacing"><i class="fa fa-inr" aria-hidden="true"></i>
-                                {{ item.product.Price }}</label>
-                            <label for="" class="spacing gray">{{ item.product.Discount }}</label>
-                            <label for=""
-                                class="spacing green">{{ ((item.product.Discount/item.product.Price)*100).toFixed(2) }}
-                                %
-                                Off</label>
+                            <label for="" class="spacing "><i class="fa fa-inr" aria-hidden="true"></i> {{ item.product.Price-item.product.Discount }}</label>
+                            <label for="" class="spacing gray">{{ item.product.Price }}</label>
+                            <label for="" class="spacing green">{{ ((item.product.Discount/item.product.Price)*100).toFixed(2) }} % Off</label>
+                           
                         </div>
                     </div>
                     <div class="col-sm-2">
@@ -45,9 +42,25 @@
         </div>
     </div>
     <div class="col-sm-4">
-        <label for="" class="spacing">
-            Sub Total ({{itemCount}} items):
-            <span class="text--red text--bold js-cart-total">{{(cart | async).grossTotal}}</span>
-        </label>
+        <div class="row border">
+            <label class="col-sm-6">
+                Price({{itemCount}} item)   
+            </label>
+            <label class="col-sm-2">
+                :
+            </label>
+            <label class="col-sm-4">
+                <i class="fa fa-inr" aria-hidden="true"></i>{{(cart | async).grossTotal}}
+            </label>
+            <label class="col-sm-6">
+                Discount 
+            </label>
+            <label class="col-sm-2">
+                :
+            </label>
+            <label class="col-sm-4">
+                <i class="fa fa-inr" aria-hidden="true"></i>{{(cart | async).grossDiscount}}
+            </label>
+        </div>
     </div>
 </div>
