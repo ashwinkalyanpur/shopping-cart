@@ -6,7 +6,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { PopulatedCartRouteGuard } from "./route-gaurds/populated-cart.route-gaurd";
 
 
-const routes: Routes = [];
+const routes: Routes = [{ path: '', component: CartComponent, pathMatch: 'full' }];
 
 @NgModule({
   exports: [RouterModule],

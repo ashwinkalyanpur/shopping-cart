@@ -18,6 +18,7 @@ import { ShoppingCartService } from './services/shopping-cart-services';
 import { ProductsDataService } from './services/productdata.services';
 import { LocalStorageServie, StorageDataService } from './services/storedata.services';
 import { PopulatedCartRouteGuard } from './route-gaurds/populated-cart.route-gaurd';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,11 @@ import { PopulatedCartRouteGuard } from './route-gaurds/populated-cart.route-gau
     AngularFontAwesomeModule,
     Ng5SliderModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    // RouterModule.forRoot(
+    //   AppRoutingModule,
+    //   { enableTracing: true } // <-- debugging purposes only
+    // )
   ],
   providers: [
     CartDataService,
