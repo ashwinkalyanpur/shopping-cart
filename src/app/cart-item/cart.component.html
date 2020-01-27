@@ -1,35 +1,53 @@
-<!-- <p *ngFor="let recipesEl of ShoppingRecipe" 
-[ShoppingRecipe]="recipesEl"
-(recipeSelected)="onRecipeSelected(recipesEl)"
-[recipe]="selectedRecipe"></p> -->
-<div class="container-fluid">
-    <div class="col-sm-12">
+<div class="row">
+    <div class="col-sm-8">
         <div class="row">
-            <div class="col-sm-3" *ngFor="let item of items">
-                <div class="col-sm-12">
-                    <div class="row">
-                        <img src="{{ item.img_url }}" class="img-responsive">
-                        <p>{{ item.Category }}</p>
-                        <label for="" class="spacing"><i class="fa fa-inr" aria-hidden="true"></i>
-                            {{ item.Price }}</label>
-                        <label for="" class="spacing gray">{{ item.Discount }}</label>
+            <div class="col-sm-12 border" *ngFor="let item of cartItems">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <img src="{{ item.product.img_url }}" class="img-responsive">
                     </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="row">
-                        <a class="btn btn-primary" (click)="decrement()" role="button">
-                            -
-                        </a>
-                        <div class="col-sm-8">
-                            <input type="text" readonly class="form-control text-center bg-white font-weight-bold "
-                                id="counterval" value="{{counter}}">
+                    <div class="col-sm-4">
+                        <div class="col-sm-12">
+                            <p>{{ item.product.Category }}</p>
                         </div>
-                        <a class="btn btn-primary" (click)="increment()" role="button">
-                            +
-                        </a>
+                        <div class="col-sm-12">
+                            <label for="" class="spacing"><i class="fa fa-inr" aria-hidden="true"></i>
+                                {{ item.product.Price }}</label>
+                            <label for="" class="spacing gray">{{ item.product.Discount }}</label>
+                            <label for=""
+                                class="spacing green">{{ ((item.product.Discount/item.product.Price)*100).toFixed(2) }}
+                                %
+                                Off</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="row">
+                            <div class="col-sm-12 table-display">
+                                <a class="btn btn-primary" (click)="decrement(item.product, 1)" role="button">
+                                    -
+                                </a>
+                                <input type="text" readonly class="form-control text-center bg-white font-weight-bold "
+                                    id="counterval" value="{{item.quantity}}">
+
+                                <a class="btn btn-primary" (click)="increment(item.product, 1)" role="button">
+                                    +
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <a (click)="removeItemFromCart(item.product, 1)" role="button">Remove</a>
                     </div>
                 </div>
+
             </div>
         </div>
+    </div>
+    <div class="col-sm-4">
+        <label for="" class="spacing">
+            Sub Total ({{itemCount}} items):
+            <span class="text--red text--bold js-cart-total">{{(cart | async).grossTotal}}</span>
+        </label>
     </div>
 </div>

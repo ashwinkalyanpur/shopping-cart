@@ -37,10 +37,10 @@ import { RouterModule } from '@angular/router';
     Ng5SliderModule,
     HttpModule,
     FormsModule,
-    // RouterModule.forRoot(
-    //   AppRoutingModule,
-    //   { enableTracing: true } // <-- debugging purposes only
-    // )
+    RouterModule.forRoot([
+      { path:'', component: ShoppingListComponent },
+      { path: 'cart-item', component: CartComponent }
+    ])
   ],
   providers: [
     CartDataService,

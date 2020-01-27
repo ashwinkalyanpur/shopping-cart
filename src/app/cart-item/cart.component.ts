@@ -15,11 +15,12 @@ interface ICartItemWithProduct extends ItemModel {
 }
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: "app-cart",
-  templateUrl: "./cart.component.html"
+  templateUrl: "./cart.component.html",
+  styleUrls:["./cart.component.css"]
 })
 export class CartComponent implements OnInit, OnDestroy {
+
   public cart: Observable<TotalCartItem>;
   public cartItems: ICartItemWithProduct[];
   public itemCount: number;
@@ -58,5 +59,15 @@ export class CartComponent implements OnInit, OnDestroy {
     if (this.cartSubscription) {
       this.cartSubscription.unsubscribe();
     }
+  }
+  public increment(product: Product): void {
+    this.shoppingCartService.addItem(product, 1);
+  }
+
+  public decrement(product: Product): void {
+    this.shoppingCartService.addItem(product, -1);
+  }
+  public removeItemFromCart(product: Product): void {
+    this.shoppingCartService.addItem(product, -1);
   }
 }
