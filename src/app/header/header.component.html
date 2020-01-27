@@ -9,7 +9,9 @@
             <li>
                 <app-search></app-search>
             </li>
-            <li> <span class='notification-counter badge badge-danger' [class.disabled]="nCount == 0" data-toggle="modal" data-target="#exampleModal">{{nCount}}</span><a href="#" (click)="onSelect('cart')"><i class="fa fa-shopping-cart"
+            <li> <span class='notification-counter badge badge-danger' >{{itemCount}}</span>
+                <a [attr.disabled]="itemCount === 0 ? true : null"
+                routerLink="/cart-item"><i class="fa fa-shopping-cart"
                         aria-hidden="true" ></i></a></li>
         </ul>
     </div>
