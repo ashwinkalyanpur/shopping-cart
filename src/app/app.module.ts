@@ -19,6 +19,11 @@ import { ProductsDataService } from './services/productdata.services';
 import { LocalStorageServie, StorageDataService } from './services/storedata.services';
 import { PopulatedCartRouteGuard } from './route-gaurds/populated-cart.route-gaurd';
 import { RouterModule } from '@angular/router';
+import { OrderModule } from 'ngx-order-pipe';
+import { ComponentLoaderService } from './component-loader.service';
+import { DatacontainerDirective } from './modal-dialog/datacontainer.directive';
+import { ModalDirective } from './modal.directive';
+import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,10 @@ import { RouterModule } from '@angular/router';
     SortComponent,
     FilterComponent,
     ShoppingListComponent,
-    HeaderComponent
+    HeaderComponent,
+    DatacontainerDirective,
+    ModalDirective,
+    ModalDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +44,7 @@ import { RouterModule } from '@angular/router';
     AngularFontAwesomeModule,
     Ng5SliderModule,
     HttpModule,
+    OrderModule,
     FormsModule,
     RouterModule.forRoot([
       { path:'', component: ShoppingListComponent },
@@ -47,12 +56,18 @@ import { RouterModule } from '@angular/router';
     ProductsDataService,
     LocalStorageServie,
     PopulatedCartRouteGuard,
+    ComponentLoaderService,
     { provide: StorageDataService, useClass: LocalStorageServie },
     {
       deps: [StorageDataService, ProductsDataService],
       provide: ShoppingCartService,
       useClass: ShoppingCartService
     }
+  ],
+  entryComponents: [
+    SortComponent,
+    FilterComponent,
+    ModalDialogComponent
   ],
   bootstrap: [AppComponent]
 })

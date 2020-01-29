@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Renderer2, ComponentFactoryResolver } from '@angular/core';
 import { Options, LabelType } from 'ng5-slider';
 
 
@@ -8,6 +8,8 @@ import { Options, LabelType } from 'ng5-slider';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
+  @Input() data: any;
+
   minValue: number = 0;
   maxValue: number = 1000;
   options: Options = {
@@ -25,7 +27,9 @@ export class FilterComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor(private el: ElementRef,
+    private ren: Renderer2,
+    private resolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
   }

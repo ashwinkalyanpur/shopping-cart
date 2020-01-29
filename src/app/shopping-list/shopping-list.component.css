@@ -29,3 +29,44 @@
 .spacing-col{
     padding:15px;
 }
+ .fa-3 {
+    font-size: 3em;
+}
+.custom-popup{
+    display: none;
+}
+@media only screen and (max-width: 600px){
+    .custom-popup{
+        display: block;
+        width: 100%;
+    }
+    .custom-popup .btn{
+        margin: 0 auto;
+        display: flex;
+    }
+    .res-hidden{
+        display: none;
+    }
+    .border {
+        border: none !important;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .border-left{
+        border: none !important;
+    }
+    .res-spacing{
+        padding:5px;
+        border: 1px solid #ededed;
+    }
+    .spacing{
+        font-size: 60%;
+        width: 29.333%;
+    }
+    .spacing.gray{
+        width: 22.333%;
+    }
+    .spacing.green{
+        width: 48.333%;
+    }
+}

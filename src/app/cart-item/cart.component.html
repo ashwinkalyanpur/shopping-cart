@@ -3,38 +3,41 @@
         <div class="row">
             <div class="col-sm-12" *ngFor="let item of cartItems">
                 <div class="row border">
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 col-5">
                         <img src="{{ item.product.img_url }}" class="img-responsive">
                     </div>
-                    <div class="col-sm-4">
-                        <div class="col-sm-12">
-                            <p>{{ item.product.Category }}</p>
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="" class="spacing "><i class="fa fa-inr" aria-hidden="true"></i> {{ item.product.Price-item.product.Discount }}</label>
-                            <label for="" class="spacing gray">{{ item.product.Price }}</label>
-                            <label for="" class="spacing green">{{ ((item.product.Discount/item.product.Price)*100).toFixed(2) }} % Off</label>
-                           
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-10 col-7">
                         <div class="row">
-                            <div class="col-sm-12 table-display">
-                                <a class="btn btn-primary" (click)="decrement(item.product, 1)" role="button">
-                                    -
-                                </a>
-                                <input type="text" readonly class="form-control text-center bg-white font-weight-bold "
-                                    id="counterval" value="{{item.quantity}}">
-
-                                <a class="btn btn-primary" (click)="increment(item.product, 1)" role="button">
-                                    +
-                                </a>
+                            <div class="col-sm-12 item-category">
+                                <p>{{ item.product.Category }}</p>
                             </div>
+                            <div class="col-sm-5">
+                                <div class="col-sm-12">
+                                    <label for="" class="spacing "><i class="fa fa-inr" aria-hidden="true"></i> {{ item.product.Price-item.product.Discount }}</label>
+                                    <label for="" class="spacing gray">{{ item.product.Price }}</label>
+                                    <label for="" class="spacing green">{{ ((item.product.Discount/item.product.Price)*100).toFixed(2) }} % Off</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="row">
+                                    <div class="col-sm-12 table-display">
+                                        <a class="btn btn-primary btn-round" (click)="decrement(item.product, 1)" role="button">
+                                            -
+                                        </a>
+                                        <input type="text" readonly class="form-control text-center bg-white font-weight-bold "
+                                            id="counterval" value="{{item.quantity}}">
 
+                                        <a class="btn btn-primary btn-round" (click)="increment(item.product, 1)" role="button">
+                                            +
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <a (click)="removeItemFromCart(item.product, 1)" class="rmvBtn" role="button">Remove</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <a (click)="removeItemFromCart(item.product, 1)" role="button">Remove</a>
                     </div>
                 </div>
 
@@ -42,25 +45,39 @@
         </div>
     </div>
     <div class="col-sm-4">
-        <div class="row border">
-            <label class="col-sm-6">
+        <div class="row border total">
+            <label class="col-sm-12 title">PRICE DETAILS</label>
+            <label class="col-sm-6 col-6">
                 Price({{itemCount}} item)   
             </label>
-            <label class="col-sm-2">
+            <label class="col-sm-2 col-2">
                 :
             </label>
-            <label class="col-sm-4">
-                <i class="fa fa-inr" aria-hidden="true"></i>{{(cart | async).grossTotal}}
+            <label class="col-sm-4 col-4">
+                <i class="fa fa-inr" aria-hidden="true"></i> {{(cart | async).grossDiscount+(cart | async).grossTotal}}
             </label>
-            <label class="col-sm-6">
+            <label class="col-sm-6 col-6">
                 Discount 
             </label>
-            <label class="col-sm-2">
+            <label class="col-sm-2 col-2">
                 :
             </label>
-            <label class="col-sm-4">
-                <i class="fa fa-inr" aria-hidden="true"></i>{{(cart | async).grossDiscount}}
+            <label class="col-sm-4 col-4">
+                <i class="fa fa-inr" aria-hidden="true"></i> {{(cart | async).grossDiscount}}
             </label>
+            <div class="bordr-top col-sm-12">
+                <div class="row">
+                    <label class="col-sm-6 col-6">
+                    <b> Total Payable </b>
+                    </label>
+                    <label class="col-sm-2 col-2">
+                        :
+                    </label>
+                    <label class="col-sm-4 col-4 total-pay">
+                        <i class="fa fa-inr" aria-hidden="true"></i><b> {{(cart | async).grossTotal}}</b>
+                    </label>
+                </div>
+            </div>
         </div>
     </div>
 </div>

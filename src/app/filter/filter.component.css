@@ -2,3 +2,9 @@
 .fa-inr:before {
   content: "\f156";
 }
+.align-btn{
+  display: flex;
+  margin: 0 auto;
+  padding:7px 15px;
+  border-radius: 25px;
+}

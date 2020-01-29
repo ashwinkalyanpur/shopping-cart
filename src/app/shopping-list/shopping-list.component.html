@@ -1,39 +1,48 @@
 <div class="container-fluid border">
     <div class="col-sm-12">
-      <div class="row">
-        <div class="col-sm-3 spacing-col">
-          <app-filter></app-filter>
-        </div>
-        <div class="col-sm-9 border-left spacing-col">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <select id="sort-by" class="form-control" (change)="sort($event)">
-                            <option value="" selected disabled hidden>Sort By</option>
-                            <option value="High">Price High -- Low</option>
-                            <option value="Low">Price Low -- High</option>
-                            <option value="Discount">Discount</option>
-                        </select>
+        <div class="row">
+            <div class="custom-popup">
+                <div class="row">
+                    <div class="col-6">
+                        <button type="button" class="btn" modal-box [componentName]="'FilterComponent'">
+                            <i class="fa fa-filter fa-3" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="col-6">
+                        <button type="button" class="btn" modal-box [componentName]="'SortComponent'">
+                            <i class="fa fa-sort fa-3" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="modal fade in" role="dialog" tabindex="-1" aria-hidden="true" #thisModal>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-3" *ngFor="let product of products | async" >
-                    <img src="{{ product.img_url }}" class="img-responsive">
-                    <p>{{ product.Category }}</p>
-                    <label for="" class="spacing "><i class="fa fa-inr" aria-hidden="true"></i> {{ product.Price-product.Discount }}</label>
-                    <label for="" class="spacing gray">{{ product.Price }}</label>
-                    <label for="" class="spacing green">{{ ((product.Discount/product.Price)*100).toFixed(2) }} % Off</label>
-                    <!-- <label for="" class="spacing gray">{{ product.Discount }}</label> -->
-                    <button type="button" class="btn btn-primary btn-custom" (click)="addProductToCart(product, 1)">
-                        Add to Cart
-                    </button>
+            <div class="col-sm-3 spacing-col res-hidden">
+                <app-filter></app-filter>
+            </div>
+            <div class="col-sm-9 border-left spacing-col">
+                <div class="row res-hidden">
+                    <div class="col-sm-12">
+                        <app-sort></app-sort>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 col-6 res-spacing" *ngFor="let product of products | async">
+                        <img src="{{ product.img_url }}" class="img-responsive">
+                        <p>{{ product.Category }}</p>
+                        <label for="" class="spacing "><i class="fa fa-inr" aria-hidden="true"></i>
+                            {{ product.Price-product.Discount }}</label>
+                        <label for="" class="spacing gray">{{ product.Price }}</label>
+                        <label for="" class="spacing green">{{ ((product.Discount/product.Price)*100).toFixed(2) }} %
+                            Off</label>
+                        <button type="button" class="btn btn-primary btn-custom" (click)="addProductToCart(product, 1)">
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
             </div>
+            
         </div>
-      </div>
     </div>
 </div>
-
-
-
