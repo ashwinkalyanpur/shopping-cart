@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { StorageDataService } from './storedata.services';
+import { StorageService } from './storage.service';
 import { Observable } from "rxjs/Observable";
 import { Observer } from "rxjs/Observer";
 import { ItemModel } from '../models/item.model';
@@ -17,9 +17,9 @@ export class ShoppingCartService {
   private subscribers: Array<Observer<TotalCartItem>> = new Array<Observer<TotalCartItem>>();
   private products: Product[];
 
-  public constructor(private StorageDataService: StorageDataService,
+  public constructor(private StorageService: StorageService,
                          private productService: ProductsDataService) {
-    this.storage = this.StorageDataService.get();
+    this.storage = this.StorageService.get();
     this.productService.all().subscribe((products) => this.products = products);
 
     this.subscriptionObservable = new Observable<TotalCartItem>((observer: Observer<TotalCartItem>) => {
@@ -46,6 +46,8 @@ export class ShoppingCartService {
 
     item.quantity += quantity;
     cart.items = cart.items.filter((cartItem) => cartItem.quantity > 0);
+    if (cart.items.length === 0) {
+    }
     
 
     this.calculateCart(cart);

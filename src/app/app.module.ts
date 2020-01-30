@@ -4,7 +4,6 @@ import { HttpModule } from "@angular/http";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { SearchComponent } from './search/search.component';
 import { CartComponent } from './cart-item/cart.component';
 import { SortComponent } from './sort/sort.component';
@@ -13,11 +12,9 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { HeaderComponent } from './header/header.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { Ng5SliderModule } from 'ng5-slider';
-import { CartDataService } from './services/cartdata.services';
 import { ShoppingCartService } from './services/shopping-cart-services';
 import { ProductsDataService } from './services/productdata.services';
-import { LocalStorageServie, StorageDataService } from './services/storedata.services';
-import { PopulatedCartRouteGuard } from './route-gaurds/populated-cart.route-gaurd';
+import { LocalStorageServie, StorageService } from './services/storage.service';
 import { RouterModule } from '@angular/router';
 import { OrderModule } from 'ngx-order-pipe';
 import { ComponentLoaderService } from './component-loader.service';
@@ -40,7 +37,6 @@ import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     AngularFontAwesomeModule,
     Ng5SliderModule,
     HttpModule,
@@ -52,14 +48,12 @@ import { ModalDialogComponent } from './modal-dialog/modal-dialog.component';
     ])
   ],
   providers: [
-    CartDataService,
     ProductsDataService,
     LocalStorageServie,
-    PopulatedCartRouteGuard,
     ComponentLoaderService,
-    { provide: StorageDataService, useClass: LocalStorageServie },
+    { provide: StorageService, useClass: LocalStorageServie },
     {
-      deps: [StorageDataService, ProductsDataService],
+      deps: [StorageService, ProductsDataService],
       provide: ShoppingCartService,
       useClass: ShoppingCartService
     }

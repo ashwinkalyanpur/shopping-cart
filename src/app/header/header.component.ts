@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
-// import { CartDataService } from '../services/cartdata.services';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Product } from "../models/product.model";
 import { TotalCartItem } from "../models/totalCartItem";
 import { ProductsDataService } from "../services/productdata.services";
@@ -13,9 +12,9 @@ import { Subscription } from "rxjs/Subscription";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-public products: Observable<Product[]>;
+  public products: Observable<Product[]>;
   public cart: Observable<TotalCartItem>;
   public itemCount: number;
 

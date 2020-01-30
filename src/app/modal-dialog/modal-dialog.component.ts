@@ -17,7 +17,7 @@ export class ModalDialogComponent implements OnInit, AfterContentInit {
   @Input() componentName: any;
   public name : any;
 
-  @ViewChild('datacontainer', { read: ViewContainerRef }) entry: ViewContainerRef;
+  @ViewChild('datacontainer', { read: ViewContainerRef, static: true }) entry: ViewContainerRef;
 
   constructor(
     private el: ElementRef,

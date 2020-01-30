@@ -5,8 +5,6 @@ import { ShoppingCartService } from '../services/shopping-cart-services';
 import { Observable } from "rxjs/Observable";
 import { Observer } from "rxjs/Observer";
 
-// import list from './_item/list.json';
-
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-shopping-list',
@@ -14,7 +12,6 @@ import { Observer } from "rxjs/Observer";
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
-
   public names: Observable<Product[]>;
   public products: Observable<Product[]>;
 
@@ -26,9 +23,9 @@ export class ShoppingListComponent implements OnInit {
     this.shoppingCartService.addItem(product, 1);
   }
 
-  public removeProductFromCart(product: Product): void {
-    this.shoppingCartService.addItem(product, -1);
-  }
+  // public removeProductFromCart(product: Product): void {
+  //   this.shoppingCartService.addItem(product, -1);
+  // }
 
   public productInCart(product: Product): boolean {
     return Observable.create((obs: Observer<boolean>) => {

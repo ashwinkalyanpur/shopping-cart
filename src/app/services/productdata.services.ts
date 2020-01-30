@@ -5,7 +5,6 @@ import "rxjs/add/operator/map";
 import { Observable } from "rxjs/Observable";
 import { CachcingServiceBase } from "./caching.service";
 
-
 let count = 0;
 
 @Injectable()
