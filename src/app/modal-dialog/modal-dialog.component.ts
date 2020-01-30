@@ -42,7 +42,6 @@ export class ModalDialogComponent implements OnInit, AfterContentInit {
 
   createModalPopup(){
     const name = this.loaderService.getComponent(this.componentName);
-    console.log("Component Name => ",name);
     const myFactory = this.resolver.resolveComponentFactory(<any>name);
     const myRef = this.entry.createComponent(myFactory);
     myRef.instance['data'] = this.componentData;

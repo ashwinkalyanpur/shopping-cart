@@ -54,7 +54,7 @@
                 :
             </label>
             <label class="col-sm-4 col-4">
-                <i class="fa fa-inr" aria-hidden="true"></i> {{(cart | async).grossDiscount+(cart | async).grossTotal}}
+                <i class="fa fa-inr" aria-hidden="true"></i> {{(cart | async).grossTotal}}
             </label>
             <label class="col-sm-6 col-6">
                 Discount 
@@ -74,7 +74,7 @@
                         :
                     </label>
                     <label class="col-sm-4 col-4 total-pay">
-                        <i class="fa fa-inr" aria-hidden="true"></i><b> {{(cart | async).grossTotal}}</b>
+                        <i class="fa fa-inr" aria-hidden="true"></i><b> {{(cart | async).grossTotal-(cart | async).grossDiscount}}</b>
                     </label>
                 </div>
             </div>
