@@ -1,6 +1,22 @@
-<div class="col-sm-12">
-    <label>Sort By</label> 
-    <a href="#" (click)="setOrder('info.Price')">Price -- High Low</a>
-    <a href="#">Price -- Low High</a>
-    <a href="#"> Discount</a>
+<div class="col-sm-12 res-show-chk">
+    <label>Sort By</label>
+    <label class="container-chk">
+        <input type="radio" id="HighLow" class="HL custom-control-input" name="sort">
+        <label>Price -- High Low</label>
+        <label class="checkmark custom-control-label" for="HighLow"><label>Price -- High Low</label></label>
+    </label>
+    <label class="container-chk">
+        <input type="radio" id="LowHigh"  class="LH custom-control-input" name="sort">
+        <label>Price -- Low High</label>
+        <label class="checkmark custom-control-label" for="LowHigh" >
+            <label>Price -- Low High</label>
+        </label>
+    </label>
+    <label class="container-chk">
+        <input type="radio" id="Discount" class="Dis custom-control-input" name="sort">
+        <label>Discount</label>
+        <label class="checkmark custom-control-label" for="Discount">
+            <label>Discount</label>
+        </label>
+    </label>
 </div>

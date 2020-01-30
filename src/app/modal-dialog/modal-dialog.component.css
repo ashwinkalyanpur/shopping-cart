@@ -1,3 +1,18 @@
 .modal{
+    width: 90%;
+    margin: 0 auto;
     display: block;
+    left: 0;
+    right: 0;
+}
+.border-right{
+    border-right: 1px solid #dee2e6 !important;
+    border-radius: 0;
+}
+.modal-footer{
+    padding: 0;
+}
+.modal-footer>*{
+    margin-top: 0;
+    margin-bottom: 0;
 }

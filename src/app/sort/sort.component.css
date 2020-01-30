@@ -1,6 +1,103 @@
-label, a{
-    margin-right:15px;
+label{
     font-weight: bold;
-    margin-bottom: 20px;
-    font-size: 70%;
+    margin-bottom: 0;
+    font-size: 80%;
 }
+.res-show-chk{
+    margin-bottom: 20px;
+}
+.container-chk {
+    position: relative;
+    margin-left: 35px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: auto;
+    display: inline-block;
+  }
+  
+  .container-chk input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 17px;
+    z-index: 99;
+  }
+  
+  .checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+  }
+  .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .container-chk input:checked ~ .checkmark::after {
+    display: block;
+  }
+.container-chk input.HL{
+    width: 115px;
+}
+.container-chk input.LH{
+    width: 113px;
+}
+.container-chk input.Dis{
+    width: 60px;
+}
+.container-chk:hover input ~ label {
+    color: #ccc;
+  }
+  .container-chk input:checked ~ label {
+    color: #2196F3;
+  }
+  .checkmark label{
+      display: none;
+  }
+  .custom-control-label::before{
+      display: none;
+  }
+  @media only screen and (max-width: 600px){
+    .container-chk, .container-chk label{
+        display: block;
+        padding-left: 10px;
+        padding-bottom: 5px;
+    }
+    .container-chk .checkmark label{
+        display: none;
+    }
+    .checkmark {
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        background-color: #eee;
+        border-radius: 50%;
+      }
+      .container-chk:hover input ~ .checkmark {
+        background-color: #ccc;
+        padding: 0;
+        border: 1px solid #2196F3;
+      }
+        .custom-control-input:checked ~ .custom-input::before {
+        background-color: #fff;
+      }
+      .checkmark::before {
+        margin-left: 24px;
+        margin-top: -4px;
+        border-radius: 50%;
+        display: block;
+
+        }
+      .container-chk .custom-control-input:checked ~ .checkmark::before {
+        background-color: #2196F3;
+        border: 3px solid #fff;
+        width: 13px;
+        height: 13px;
+    }
+  }

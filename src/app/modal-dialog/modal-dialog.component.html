@@ -9,7 +9,12 @@
         <div #datacontainer></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" (click)="closeModal()">Close</button>
+        <div class="col-12">
+          <div class="row">
+            <button type="button" class="btn col-6 border-right" (click)="closeModal()">Cancel</button>
+            <button type="button" class="btn col-6" (click)="closeModal()">Apply</button>
+          </div>
+        </div>
       </div>
     </div>
 
